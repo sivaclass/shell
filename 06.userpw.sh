@@ -2,6 +2,6 @@
 
 echo " print username:"
 
-read -s USERNAME
+read  USERNAME
 
 echo " user name is $username "
