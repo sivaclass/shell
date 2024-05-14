@@ -4,4 +4,4 @@ echo " print username:"
 
 read  USERNAME
 
-echo " user name is $username "
+echo " user name is $USERNAME "
