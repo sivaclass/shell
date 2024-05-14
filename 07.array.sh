@@ -1,3 +1,3 @@
 #!/bin/bash
 fruits=("apple" "banana" "gauva")
-echo "$fruits[0]"
+echo "${$(fruits[0])}"
