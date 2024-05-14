@@ -2,4 +2,4 @@
 
 DATE=$(date)
 
-echo "print today date: ${DATE}
+echo "print today date: ${DATE}"
