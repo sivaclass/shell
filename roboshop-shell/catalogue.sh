@@ -44,7 +44,7 @@ VALIDATE $? "catalogue downloading"
 cd /app
 unzip /tmp/catalogue.zip &>>$LOGFILE
 VALIDATE $? "unzip catalogue"
-cp /c/Users/Admin/Desktop/shell/roboshop-shell /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp /home/centos/shell/roboshop-shell /etc/systemd/system/catalogue.service &>>$LOGFILE
 VALIDATE $? "copying catalogue"
 systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "Demaon Reload"
@@ -52,7 +52,7 @@ systemctl enable catalogue &>>$LOGFILE
 VALIDATE $? "enable catalogue"
 systemctl start catalogue &>>$LOGFILE
 VALIDATE $? "start catalogue"
-cp /c/Users/Admin/Desktop/shell/roboshop-shell /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+cp /home/centos/shell/roboshop-shell /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 VALIDATE $? "coping mongo repo"
 dnf install mongodb-org-shell -y &>>$LOGFILE
 VALIDATE $? "install mongodb client"
