@@ -36,4 +36,4 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf &>> $LOGFILE
 systemctl enable redis &>> $LOGFILE
 VALIDATE $? "enable redis"
 systemctl start redis &>> $LOGFILE
-VALIDATE $? "start redis "
+VALIDATE $? "start redis"

@@ -56,7 +56,7 @@ systemctl start shipping &>>$LOGFILE
 VALIDATE $? "start shipping"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "install MySQL client"
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql &>>$LOGFILE
+mysql -h 172.31.28.137 -uroot -pRoboShop@1 < /app/schema/shipping.sql &>>$LOGFILE
 VALIDATE $? "loading shipping data"
 systemctl restart shipping &>>$LOGFILE
 VALIDATE $? "restart shipping"

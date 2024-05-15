@@ -57,7 +57,7 @@ cp /home/centos/shell/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$
 VALIDATE $? "coping mongo repo"
 dnf install mongodb-org-shell -y &>>$LOGFILE
 VALIDATE $? "install mongodb client"
-mongo --host 172.31.24.47 < /app/schema/catalogue.js &>>$LOGFILE
+mongo --host 172.31.31.242 < /app/schema/catalogue.js &>>$LOGFILE
 VALIDATE $? "load schema"
 
 

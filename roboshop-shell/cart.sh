@@ -52,9 +52,3 @@ systemctl enable cart &>>$LOGFILE
 VALIDATE $? "enable cart"
 systemctl start cart &>>$LOGFILE
 VALIDATE $? "start cart"
-cp /home/centos/shell/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
-VALIDATE $? "coping mongo repo"
-dnf install mongodb-org-shell -y &>>$LOGFILE
-VALIDATE $? "install mongodb client"
-mongo --host 172.31.24.47 < /app/schema/cart.js &>>$LOGFILE
-VALIDATE $? "load schema"
