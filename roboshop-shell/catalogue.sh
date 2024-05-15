@@ -59,8 +59,8 @@ dnf install mongodb-org-shell -y &>>$LOGFILE
 VALIDATE $? "install mongodb client"
 mongo --host 172.31.24.47 < /app/schema/catalogue.js &>>$LOGFILE
 VALIDATE $? "load schema"
-systemctl daemon-reload
-VALIDATE $? "reloading after change"
+systemctl restart nodejs
+VALIDATE $? "reloading after nodejschange"
 
 
     
