@@ -4,6 +4,7 @@ LOGFILE="/tmp/vijay$(date)-$0.log"
 if [ $ID -ne 0 ]
 then
     echo "pls login with ROOT user"
+    exit 12
 else
     echo " your ROOT user"
 fi
@@ -12,6 +13,7 @@ VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e " Install $2 Failed"
+        exit 1
     else
         echo -e " install $2 success"
     fi
