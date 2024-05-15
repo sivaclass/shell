@@ -42,7 +42,7 @@ mkdir -p /app &>>$LOGFILE
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 VALIDATE $? "catalogue downloading"
 cd /app
-unzip /tmp/catalogue.zip &>>$LOGFILE
+unzip -o /tmp/catalogue.zip &>>$LOGFILE
 VALIDATE $? "unzip catalogue"
 cp /home/centos/shell/roboshop-shell /etc/systemd/system/catalogue.service &>>$LOGFILE
 VALIDATE $? "copying catalogue"
