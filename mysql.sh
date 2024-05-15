@@ -1,9 +1,9 @@
 #!/bin/bash
 ID=$(id -u)
 LOGFILE=/tmp/$(date)-$0
-R=/e31m
-G=/e32m
-N=/0m
+R=/e[31m
+G=/e[32m
+N=/[0m
 if [ $ID -ne 0 ]
 then
 echo " please take root access "
