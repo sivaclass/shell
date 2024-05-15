@@ -25,8 +25,8 @@ VALIDATE(){
     fi
 }
 
-dnf install python3.6 gcc python3-devel -y &>>$LOGFILE
-VALIDATE $? "install python 3.6"
+dnf install python36 gcc python3-devel -y &>>$LOGFILE
+VALIDATE $? "install python 36"
 id roboshop 
 if [ $? -ne 0 ]
 then
