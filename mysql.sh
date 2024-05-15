@@ -1,5 +1,6 @@
 #!/bin/bash
 ID=$(id -u)
+LOGFILE=/tmp/$(date)-$0
 if [ $ID -ne 0 ]
 then
 echo " please take root access "
@@ -16,7 +17,7 @@ fi
    
 }
 
-yum install mysql -y
+yum install mysql -y &>> $LOGFILE
 VALIDATE $? "mysql"
-yum install git -y
+yum install git -y &>> $LOGFILE
 VALIDATE $? "git"
