@@ -36,7 +36,7 @@ else
 fi
 mkdir -p /app 
 VALIDATE $? "creating app directory"
-curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.am/etc/systemd/system/shipping.serviceazonaws.com/shipping.zip &>>$LOGFILE
+curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>>$LOGFILE
 VALIDATE $? "Downloading shipping"
 cd /app
 VALIDATE $? "moving to app directory"
