@@ -14,3 +14,11 @@ echo " mysql not installed"
 else
 echo " mysql installation suceess "
 fi
+
+yum install git -y
+if [ $? -ne 0 ]
+then
+echo " git not installed"
+else
+echo " git installation suceess "
+fi
