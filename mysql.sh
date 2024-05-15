@@ -7,16 +7,16 @@ else
 echo " you are in root user "
 fi
 VALIDATE() {
-    if [ $? -ne 0 ]
+    if [ $1 -ne 0 ]
 then
-echo " git not installed"
+echo " $2 not installed "
 else
-echo " git installation suceess "
+echo " $2 installation suceess you can proceed "
 fi
    
 }
 
 yum install mysql -y
-VALIDATE
+VALIDATE $? "mysql"
 yum install git -y
-VALIDATE
+VALIDATE $? "git"
