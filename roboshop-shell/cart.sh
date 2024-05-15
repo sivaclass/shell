@@ -10,9 +10,9 @@ LOGFILE="/tmp/vijay$(date)-$0.log"
 if [ $ID -ne 0 ]
 then
     echo "pls login with ROOT user"
-    exit 12
+    exit 1
 else
-    echo " your ROOT user"
+    echo " your are ROOT user"
 fi
 
 VALIDATE(){
@@ -24,7 +24,6 @@ VALIDATE(){
         echo -e "$G successfull $2 $N"
     fi
 }
-
 dnf module disable nodejs -y &>>$LOGFILE
 VALIDATE $? "Disabled NODEJS"
 dnf module enable nodejs:18 -y &>>$LOGFILE
@@ -40,26 +39,22 @@ else
     echo "user roboshop existed"
 fi
 mkdir -p /app &>>$LOGFILE
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
-VALIDATE $? "catalogue downloading"
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
+VALIDATE $? "cart downloading"
 cd /app
-unzip -o /tmp/catalogue.zip &>>$LOGFILE
-VALIDATE $? "unzip catalogue"
-cp /home/centos/shell/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
-VALIDATE $? "copying catalogue"
+unzip -o /tmp/cart.zip &>>$LOGFILE
+VALIDATE $? "unzip cart"
+cp /home/centos/shell/roboshop-shell/cart.service /etc/systemd/system/cart.service &>>$LOGFILE
+VALIDATE $? "copying cart"
 systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "Demaon Reload"
-systemctl enable catalogue &>>$LOGFILE
-VALIDATE $? "enable catalogue"
-systemctl start catalogue &>>$LOGFILE
-VALIDATE $? "start catalogue"
+systemctl enable cart &>>$LOGFILE
+VALIDATE $? "enable cart"
+systemctl start cart &>>$LOGFILE
+VALIDATE $? "start cart"
 cp /home/centos/shell/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 VALIDATE $? "coping mongo repo"
 dnf install mongodb-org-shell -y &>>$LOGFILE
 VALIDATE $? "install mongodb client"
-mongo --host 172.31.24.47 < /app/schema/catalogue.js &>>$LOGFILE
+mongo --host 172.31.24.47 < /app/schema/cart.js &>>$LOGFILE
 VALIDATE $? "load schema"
-
-
-
-    
