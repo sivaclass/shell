@@ -1,6 +1,6 @@
 #!/bin/bash
-SU=($sudo su -)
-if [ $SU -ne 0 ] 
+sudo su -
+if [ $? -ne 0 ] 
 then
 echo " you are not in user "
 else
