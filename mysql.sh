@@ -1,9 +1,9 @@
 #!/bin/bash
 ID=$(id -u)
 LOGFILE=/tmp/$(date)-$0
-R=/e[31m
-G=/e[32m
-N=/[0m
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 if [ $ID -ne 0 ]
 then
 echo " please take root access "
@@ -13,9 +13,9 @@ fi
 VALIDATE() {
     if [ $1 -ne 0 ]
 then
-echo " $2 $R not installed $N"
+echo -e " $2 $R not installed $N"
 else
-echo " $2 installation suceess $G you can proceed $N"
+echo -e " $2 installation suceess $G you can proceed $N"
 fi
    
 }
