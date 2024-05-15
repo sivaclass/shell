@@ -26,8 +26,8 @@ VALIDATE(){
 }
 dnf module disable mysql -y &>> LOGFILE
 VALIDATE $? "disable mysql"
-cp /home/centos/shel/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>> LOGFILE
-
+cp /home/centos/shell/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>> LOGFILE
+VALIDATE $? "copying mysql repo"
 dnf install mysql-community-server -y &>> LOGFILE
 VALIDATE $? "Install MySQL Server"
 systemctl enable mysqld &>> LOGFILE
