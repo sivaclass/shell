@@ -6,19 +6,17 @@ echo " please take root access "
 else
 echo " you are in root user "
 fi
-
-yum install mysql -y
-if [ $? -ne 0 ]
-then
-echo " mysql not installed"
-else
-echo " mysql installation suceess "
-fi
-
-yum install git -y
-if [ $? -ne 0 ]
+VALIDATE() {
+    if [ $? -ne 0 ]
 then
 echo " git not installed"
 else
 echo " git installation suceess "
 fi
+   
+}
+
+yum install mysql -y
+VALIDATE
+yum install git -y
+VALIDATE
