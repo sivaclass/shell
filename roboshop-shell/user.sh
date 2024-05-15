@@ -44,6 +44,8 @@ VALIDATE $? "user downloading"
 cd /app
 unzip -o /tmp/user.zip &>>$LOGFILE
 VALIDATE $? "unzip user"
+npm install -y
+VALIDATE $? "NPM install"
 cp /home/centos/shell/roboshop-shell/user.service /etc/systemd/system/user.service &>>$LOGFILE
 VALIDATE $? "copying user"
 systemctl daemon-reload &>>$LOGFILE
